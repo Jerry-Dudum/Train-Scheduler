@@ -35,3 +35,25 @@ $("#add-train-button").on("click", function(event){
     frequency = $("#frequency-input").val("");
 });
 
+database.ref().on("child_added", function (childSnap) {
+
+    console.log(childSnap.val().trainName);
+    console.log(childSnap.val().destinationName);
+    console.log(childSnap.val().time);
+    console.log(childSnap.val().frequency);
+
+    //Need to incorporate moment js to get newArrival and newMinutes
+
+    var newTrain = $("<tr>");
+    var newName = $("<td scope='col'>").text(childSnap.val().trainName);
+    var newDestination = $("<td scope='col'>").text(childSnap.val().destinationName);
+    var newTime = $("<td scope='col'>").text(childSnap.val().time);
+    var newFrequency = $("<td scope='col'>").text(childSnap.val().frequency);
+    var newArrival = $("<td scope='col'>").text();
+    var newMinutes = $("<td scope='col'>").text();
+
+    newTrain.append(newName).append(newDestination).append(newTime).append(newFrequency).append(newArrival).append(newMinutes);
+    console.log(newTrain);
+
+    $("#table-body").append(newTrain);
+})
