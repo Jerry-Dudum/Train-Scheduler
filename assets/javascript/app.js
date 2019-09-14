@@ -34,3 +34,4 @@ $("#add-train-button").on("click", function(event){
     time = $("#time-input").val("");
     frequency = $("#frequency-input").val("");
 });
+
