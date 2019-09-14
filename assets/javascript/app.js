@@ -13,3 +13,24 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+$("#add-train-button").on("click", function(event){
+
+    event.preventDefault();
+
+    var trainName = $("#train-name-input").val().trim();
+    var destinationName = $("#destination-input").val().trim();
+    var time = $("#time-input").val().trim();
+    var frequency = $("#frequency-input").val().trim();
+
+    database.ref().push({
+        trainName: trainName,
+        destinationName: destinationName,
+        time: time,
+        frequency: frequency
+    });
+
+    trainName = $("#train-name-input").val("");
+    destinationName = $("#destination-input").val("");
+    time = $("#time-input").val("");
+    frequency = $("#frequency-input").val("");
+});
