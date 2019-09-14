@@ -31,32 +31,69 @@
 
 <body>
     <div class="container">
-       
+
         <div class="jumbotron" style="background-color: black; color: white">
             <h1 class="text-center animated bounceInRight slow">ALL ABOARD</h1>
             <h1 class="text-center animated bounceInRight slow">Schedule of Trains</h3>
         </div>
 
-        <div class="card mb-4">
-            <div class="card-header">Current Trains</div>
-            <div class="card-body">
-                <table class="table table-sm table-hover" id='employee-table'>
-                    <thead>
-                        <tr>
-                            <th scope="col">Train Name</th>
-                            <th scope="col">Destination</th>
-                            <th scope="col">Frequency (min)</th>
-                            <th scope="col">Next Arrival</th>
-                            <th scope="col">Minutes Away</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-body">
-                    </tbody>
-                </table>
+        <div class="row">
+            ​
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">Current Trains</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='employee-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
-        
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card mb-4">
+                    <div class="card-header">Add Train</div>
+                    <div class="card-body">
+                        ​
+
+                        <form>
+                            <div class="form-group">
+                                <label for="train-name-input">Train Name</label>
+                                <input class="form-control" id="train-name-input" placeholder="CHOO-CHOO" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination-input">Role</label>
+                                <input class="form-control" id="destination-input" placeholder="San Francisco" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="time-input">First Train Time (HH:mm - military time)</label>
+                                <input class="form-control" id="start-input" placeholder="HH:mm" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency-input">Frequency (min)</label>
+                                <input class="form-control" id="frequency-input" placeholder="10" type="text">
+                            </div>
+                            <button class="btn btn-dark float-left" id="add-train-button">Submit</button>
+                        </form>
+                        ​
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- JavaScript -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
