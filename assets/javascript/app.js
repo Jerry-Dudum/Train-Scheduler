@@ -47,12 +47,11 @@ database.ref().on("child_added", function (childSnap) {
     var newTrain = $("<tr>");
     var newName = $("<td scope='col'>").text(childSnap.val().trainName);
     var newDestination = $("<td scope='col'>").text(childSnap.val().destinationName);
-    var newTime = $("<td scope='col'>").text(childSnap.val().time);
     var newFrequency = $("<td scope='col'>").text(childSnap.val().frequency);
     var newArrival = $("<td scope='col'>").text();
     var newMinutes = $("<td scope='col'>").text();
 
-    newTrain.append(newName).append(newDestination).append(newTime).append(newFrequency).append(newArrival).append(newMinutes);
+    newTrain.append(newName).append(newDestination).append(newFrequency).append(newArrival).append(newMinutes);
     console.log(newTrain);
 
     $("#table-body").append(newTrain);
