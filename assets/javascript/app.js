@@ -1,3 +1,4 @@
+$(document).ready(function () {
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyDKd9dUWojUS8agnkFTkUT48BJt9J8q2MM",
@@ -48,11 +49,21 @@ database.ref().on("child_added", function (childSnap) {
     var newName = $("<td scope='col'>").text(childSnap.val().trainName);
     var newDestination = $("<td scope='col'>").text(childSnap.val().destinationName);
     var newFrequency = $("<td scope='col'>").text(childSnap.val().frequency);
-    var newArrival = $("<td scope='col'>").text();
-    var newMinutes = $("<td scope='col'>").text();
+    //need to incorporate moment js here to create these values
+    var firstTrainTime = childSnap.val().time;
+    var momentFirstTrain = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+    var timeDifference = moment().diff(moment(momentFirstTrain), "minutes");
+    var trainFrequency = childSnap.val().frequency;
+    var timeRemaining = timeDifference % trainFrequency;
+    var minutesAway = trainFrequency - timeRemaining;
+    var nextTrain = moment().add(minutesAway, "minutes");
+    var newArrival = $("<td scope='col'>").text(moment(nextTrain).format("HH:mm"));
+    var newMinutes = $("<td scope='col'>").text(minutesAway);
 
     newTrain.append(newName).append(newDestination).append(newFrequency).append(newArrival).append(newMinutes);
     console.log(newTrain);
 
     $("#table-body").append(newTrain);
-})
+});
+
+});
